@@ -34,7 +34,7 @@ def get_index():
 def post_index():
     # Process data sent from Comapi
     try:
-        # Grab the body and parse to a JSON object
+        # Grab the body data
         raw_body = request.get_data().decode("utf-8")
 
         if (raw_body is None):
@@ -81,6 +81,7 @@ def post_index():
 my_port = int(os.environ.get('PORT', 5000))
 
 if 'DYNO' in os.environ:
+    # Running in Heroku
     debug = False
     host_ip = "0.0.0.0"
 else:
