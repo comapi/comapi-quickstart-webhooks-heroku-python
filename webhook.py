@@ -4,6 +4,7 @@ import os
 import hmac
 import hashlib
 import json
+import os
 from flask import Flask, render_template, request
 from flask_api import status
 
@@ -52,7 +53,7 @@ def post_index():
             return "Invalid request: No HMAC value found!", status.HTTP_401_UNAUTHORIZED
         else:
             # Validate the HMAC, ensure you has exposed the rawBody, see app.js for how to do this
-            hash = hmac_sha1(raw_body, ">>>YOUR SECRET<<<")
+            hash = hmac_sha1(raw_body, "a secret")
 
             if (request_hmac != hash):
                 # The request is not from Comapi or has been tampered with
