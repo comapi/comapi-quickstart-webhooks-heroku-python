@@ -3,6 +3,7 @@
 import hmac
 import hashlib
 import json
+import os
 from flask import Flask, render_template, request
 from flask_api import status
 
@@ -77,5 +78,7 @@ def post_index():
         raise
 
 # Fire up the local server
+my_port = int(os.environ.get('PORT', 5000))
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, port=my_port)
