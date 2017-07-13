@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # A basic website to demonstrate Facebook opt-in using Comapi and Python.
+import os
 import hmac
 import hashlib
 import json
